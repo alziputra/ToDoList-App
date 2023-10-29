@@ -21,7 +21,7 @@ function ListTodos() {
   };
 
   return (
-    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <ul className="grid grid-cols-1 gap-4">
       {todos.map((todo) => (
         <li key={todo.id} className="flex items-center bg-gray-200 p-2 rounded-md">
           <span onClick={() => handleToggle(todo.id)} className={`cursor-pointer flex-1 ${todo.completed ? "line-through text-gray-400" : ""}`}>

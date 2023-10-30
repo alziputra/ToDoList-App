@@ -1,23 +1,49 @@
-import {
-  createSlice
-} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 // Inisialisasi state awal untuk todos
 const initialState = {
-  todos: [{
+  todos: [
+    {
       id: 1,
       text: "Belajar React",
       completed: true,
+      date: new Date().toLocaleDateString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+      }),
     },
     {
       id: 2,
       text: "Belajar Redux",
       completed: false,
+      date: new Date().toLocaleDateString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+      }),
     },
     {
       id: 3,
       text: "Belajar React Native",
       completed: false,
+      date: new Date().toLocaleDateString("en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+      }),
     },
   ],
 };
@@ -47,6 +73,8 @@ const todosSlice = createSlice({
       const todo = state.todos.find((todo) => todo.id === action.payload);
       if (todo) {
         todo.completed = !todo.completed;
+        // Simpan perubahan ke local storage
+        localStorage.setItem("todos", JSON.stringify(state.todos));
       }
     },
 
@@ -66,12 +94,6 @@ const todosSlice = createSlice({
 });
 
 // Ekspor aksi dan reducer dari slice 'todos'
-export const {
-  addTodo,
-  removeTodo,
-  toggleTodo,
-  editTodo,
-  toggleFilter
-} = todosSlice.actions;
+export const { addTodo, removeTodo, toggleTodo, editTodo, toggleFilter } = todosSlice.actions;
 
 export default todosSlice.reducer;

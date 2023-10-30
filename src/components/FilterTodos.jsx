@@ -7,7 +7,7 @@ function FilterTodos() {
   // Function untuk menangani filter yang diklik dan mengirimkan aksi toggleFilter ke Redux
   const handleFilter = (filter) => {
     // Mengirim aksi toggleFilter dengan argumen filter
-    dispatch(toggleFilter(filter)); 
+    dispatch(toggleFilter(filter));
   };
 
   return (
